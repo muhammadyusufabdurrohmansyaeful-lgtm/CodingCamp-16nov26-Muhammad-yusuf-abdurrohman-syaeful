@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Dashboard ✨</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ======= HEADER ======= -->
+  <header>
+    <h1>✨ My Dashboard</h1>
+    <div class="header-actions">
+      <button class="btn-icon" id="btn-theme">🌙 Dark</button>
+    </div>
+  </header>
+
+  <!-- ======= MAIN ======= -->
+  <main>
+
+    <!-- 1. GREETING CARD -->
+    <div class="card" id="greeting-card">
+      <div class="greeting-left">
+        <h2>Greeting</h2>
+        <div id="greeting-text">Selamat Datang! 👋</div>
+        <div id="greeting-date"></div>
+        <div class="name-edit">
+          <input type="text" id="name-input" placeholder="Masukkan namamu..." maxlength="30" />
+          <button class="btn btn-primary" id="btn-save-name">Simpan</button>
+        </div>
+      </div>
+      <div id="greeting-time">00:00:00</div>
+    </div>
+
+    <!-- 2. FOCUS TIMER CARD -->
+    <div class="card">
+      <h2>⏱️ Focus Timer</h2>
+
+      <div class="timer-duration">
+        <label for="timer-minutes">Durasi (menit):</label>
+        <input type="number" id="timer-minutes" value="25" min="1" max="120" />
+      </div>
+
+      <div class="timer-display">
+        <span id="timer-time">25:00</span>
+        <span id="timer-label">Siap memulai!</span>
+      </div>
+
+      <div class="timer-progress">
+        <div class="timer-progress-bar" id="timer-bar"></div>
+      </div>
+
+      <div class="timer-controls">
+        <button class="btn btn-primary" id="btn-start">▶ Start</button>
+        <button class="btn btn-secondary" id="btn-stop">⏸ Stop</button>
+        <button class="btn btn-danger" id="btn-reset">↺ Reset</button>
+      </div>
+    </div>
+
+    <!-- 3. QUICK LINKS CARD -->
+    <div class="card">
+      <h2>🔗 Quick Links</h2>
+      <div class="links-input-row">
+        <input type="text" id="link-name" placeholder="Nama (mis: YouTube)" maxlength="20" />
+        <input type="text" id="link-url"  placeholder="URL (mis: youtube.com)" />
+        <button class="btn btn-primary" id="btn-add-link">+ Tambah</button>
+      </div>
+      <div id="links-container"></div>
+    </div>
+
+    <!-- 4. TO-DO LIST CARD -->
+    <div class="card" id="todo-card">
+      <h2>📝 To-Do List</h2>
+
+      <div class="todo-input-row">
+        <input type="text" id="task-input" placeholder="Tambah tugas baru..." maxlength="100" />
+        <button class="btn btn-primary" id="btn-add-task">+ Tambah</button>
+      </div>
+
+      <div class="todo-controls">
+        <select id="task-filter">
+          <option value="all">Semua Tugas</option>
+          <option value="active">Belum Selesai</option>
+          <option value="done">Sudah Selesai</option>
+        </select>
+        <button class="btn btn-secondary" id="btn-clear-done">🧹 Hapus Selesai</button>
+      </div>
+
+      <ul id="todo-list"></ul>
+    </div>
+
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toast"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

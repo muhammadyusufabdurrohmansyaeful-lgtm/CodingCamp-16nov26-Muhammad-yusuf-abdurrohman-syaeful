@@ -1,0 +1,610 @@
+/* ============================
+   ROOT VARIABLES & RESET
+   ============================ */
+:root {
+  --bg: #f0f2f5;
+  --card: #ffffff;
+  --text: #1a1a2e;
+  --subtext: #555;
+  --accent: #4a90e2;
+  --accent-hover: #357abd;
+  --danger: #e74c3c;
+  --success: #27ae60;
+  --warning: #f39c12;
+  --border: #ddd;
+  --shadow: 0 4px 16px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+
+[data-theme="dark"] {
+  --bg: #0f0f1a;
+  --card: #1a1a2e;
+  --text: #e0e0f0;
+  --subtext: #aaa;
+  --accent: #5b9bd5;
+  --accent-hover: #4a90e2;
+  --border: #2a2a4a;
+  --shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+  min-height: 100vh;
+}
+
+/* ============================
+   HEADER / NAVBAR
+   ============================ */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-icon {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.btn-icon:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* ============================
+   MAIN LAYOUT
+   ============================ */
+main {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: background 0.3s;
+}
+
+.card h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--subtext);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+/* ============================
+   GREETING CARD
+   ============================ */
+#greeting-card {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.greeting-left h2 {
+  margin-bottom: 4px;
+}
+
+#greeting-text {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+#greeting-date {
+  font-size: 15px;
+  color: var(--subtext);
+}
+
+#greeting-time {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -1px;
+}
+
+/* Name modal & edit */
+.name-edit {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.name-edit input {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  width: 180px;
+}
+
+.name-edit input:focus {
+  border-color: var(--accent);
+}
+
+/* ============================
+   TIMER CARD
+   ============================ */
+.timer-display {
+  text-align: center;
+  margin: 10px 0;
+}
+
+#timer-time {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -2px;
+  display: block;
+}
+
+#timer-label {
+  font-size: 13px;
+  color: var(--subtext);
+  margin-top: 4px;
+  display: block;
+}
+
+.timer-progress {
+  width: 100%;
+  height: 6px;
+  background: var(--border);
+  border-radius: 10px;
+  margin: 14px 0;
+  overflow: hidden;
+}
+
+.timer-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 10px;
+  transition: width 1s linear;
+  width: 100%;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.timer-duration {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.timer-duration label {
+  font-size: 13px;
+  color: var(--subtext);
+  align-self: center;
+}
+
+.timer-duration input {
+  width: 65px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  text-align: center;
+  outline: none;
+}
+
+.timer-duration input:focus {
+  border-color: var(--accent);
+}
+
+/* ============================
+   BUTTONS
+   ============================ */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c0392b;
+}
+
+.btn-secondary {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--border);
+}
+
+.btn-success {
+  background: var(--success);
+  color: white;
+}
+
+.btn-success:hover {
+  background: #219a52;
+}
+
+/* ============================
+   TODO CARD
+   ============================ */
+#todo-card {
+  grid-column: 1 / -1;
+}
+
+.todo-input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.todo-input-row input {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+}
+
+.todo-input-row input:focus {
+  border-color: var(--accent);
+}
+
+.todo-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.todo-controls select {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+}
+
+#todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+#todo-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+#todo-list::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+  animation: fadeIn 0.3s ease;
+}
+
+.todo-item:hover {
+  border-color: var(--accent);
+}
+
+.todo-item.done .todo-text {
+  text-decoration: line-through;
+  color: var(--subtext);
+  opacity: 0.6;
+}
+
+.todo-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.todo-text-edit {
+  flex: 1;
+  padding: 4px 8px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.todo-btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.todo-btn-edit {
+  background: #f39c1222;
+  color: var(--warning);
+}
+
+.todo-btn-edit:hover {
+  background: var(--warning);
+  color: white;
+}
+
+.todo-btn-delete {
+  background: #e74c3c22;
+  color: var(--danger);
+}
+
+.todo-btn-delete:hover {
+  background: var(--danger);
+  color: white;
+}
+
+.todo-btn-save {
+  background: #27ae6022;
+  color: var(--success);
+}
+
+.todo-btn-save:hover {
+  background: var(--success);
+  color: white;
+}
+
+.todo-empty {
+  text-align: center;
+  color: var(--subtext);
+  font-size: 14px;
+  padding: 24px 0;
+}
+
+/* ============================
+   QUICK LINKS CARD
+   ============================ */
+.links-input-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.links-input-row input {
+  flex: 1;
+  min-width: 120px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+}
+
+.links-input-row input:focus {
+  border-color: var(--accent);
+}
+
+#links-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.link-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: all 0.2s;
+  animation: fadeIn 0.3s ease;
+}
+
+.link-item:hover {
+  border-color: var(--accent);
+}
+
+.link-item a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link-item a:hover {
+  text-decoration: underline;
+}
+
+.link-favicon {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+}
+
+.link-delete {
+  background: none;
+  border: none;
+  color: var(--subtext);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 2px;
+  transition: color 0.2s;
+}
+
+.link-delete:hover {
+  color: var(--danger);
+}
+
+/* ============================
+   TOAST NOTIFICATION
+   ============================ */
+#toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--text);
+  color: var(--card);
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 999;
+  max-width: 300px;
+}
+
+#toast.show {
+  opacity: 1;
+}
+
+/* ============================
+   ANIMATIONS
+   ============================ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 700px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  #greeting-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #greeting-time {
+    font-size: 36px;
+  }
+
+  #timer-time {
+    font-size: 44px;
+  }
+
+  header {
+    padding: 12px 16px;
+  }
+}
